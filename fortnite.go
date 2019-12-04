@@ -92,7 +92,12 @@ func (s *Service) Do(urlStr string, v interface{}) (response *http.Response, err
 	req.Header.Add("TRN-Api-Key", s.token)
 	req.Header.Add("User-Agent", s.UserAgent)
 
-	if response, err = s.client.Do(req); err != nil {
+	response, err = s.client.Do(req)
+	if err != nil {
+		return
+	}
+	if response == nil {
+		err = errors.New("unknown error")
 		return
 	}
 	defer func() {
