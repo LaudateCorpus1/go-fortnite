@@ -100,11 +100,13 @@ func (s *Service) Do(urlStr string, v interface{}) (response *http.Response, err
 		err = errors.New("unknown error")
 		return
 	}
-	// defer func() {
-	// 	if rerr := response.Body.Close(); err == nil {
-	// 		err = rerr
-	// 	}
-	// }()
+	defer func() {
+		if response.Body != nil {
+			if rerr := response.Body.Close(); err == nil {
+				err = rerr
+			}
+		}
+	}()
 
 	if err = CheckResponse(response); err != nil {
 		return
