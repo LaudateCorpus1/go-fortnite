@@ -5,7 +5,7 @@ fortnite tracker API client
 ## Install
 
 ```bash
-go get -u github.com/usk81/go-dmm
+go get -u github.com/usk81/go-fortnite
 ```
 
 ## Usage
