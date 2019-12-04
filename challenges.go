@@ -14,6 +14,6 @@ type Metadata struct {
 }
 
 func GetChallenges(s *Service) (result Challenges, err error) {
-	_, err = s.Do("challenges", result)
+	_, err = s.Do("challenges", &result)
 	return
 }

@@ -109,6 +109,6 @@ func GetStats(s *Service, platform, nickname string) (result BRPlayerStats, err 
 }
 
 func GetMatchHistory(s *Service, accountID string) (result []Item, err error) {
-	_, err = s.Do(fmt.Sprintf("profile/account/%s/matches", accountID), result)
+	_, err = s.Do(fmt.Sprintf("profile/account/%s/matches", accountID), &result)
 	return
 }

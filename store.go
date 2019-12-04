@@ -11,6 +11,6 @@ type Item struct {
 }
 
 func GetStore(s *Service) (result []Item, err error) {
-	_, err = s.Do("store", result)
+	_, err = s.Do("store", &result)
 	return
 }
